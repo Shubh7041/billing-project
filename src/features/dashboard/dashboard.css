@@ -1,0 +1,412 @@
+.dashboard-page {
+  display: grid;
+  gap: var(--space-5);
+  min-width: 0;
+  color: var(--color-text-primary);
+}
+
+.dashboard-page .page-title {
+  color: var(--color-text-primary);
+}
+
+.dashboard-preview-note {
+  justify-self: start;
+  margin: 0;
+  padding: 6px 10px;
+  border: 1px solid var(--color-brand-100);
+  border-radius: var(--radius-full);
+  background: var(--color-brand-50);
+  color: var(--color-brand-700);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.dashboard-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.dashboard-card.ui-card {
+  min-width: 0;
+  color: var(--color-text-primary);
+}
+
+.dashboard-card .ui-card-title {
+  color: var(--color-text-primary);
+}
+
+.dashboard-card .ui-card-description {
+  color: var(--color-text-secondary);
+}
+
+.dashboard-summary-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  min-height: 142px;
+}
+
+.dashboard-summary-icon,
+.dashboard-quick-icon {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--color-brand-50);
+  color: var(--color-brand-700);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+}
+
+.dashboard-summary-icon-bills {
+  background: var(--color-info-surface);
+  color: var(--color-info);
+}
+
+.dashboard-summary-icon-stock {
+  background: var(--color-warning-surface);
+  color: var(--color-warning);
+}
+
+.dashboard-summary-icon-products {
+  background: var(--color-success-surface);
+  color: var(--color-success);
+}
+
+.dashboard-summary-copy {
+  min-width: 0;
+}
+
+.dashboard-summary-label,
+.dashboard-summary-detail {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+}
+
+.dashboard-summary-value {
+  margin: 8px 0 4px;
+  color: var(--color-text-primary);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.dashboard-summary-detail {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+}
+
+.dashboard-content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(270px, 0.85fr);
+  align-items: start;
+  gap: var(--space-5);
+  min-width: 0;
+}
+
+.dashboard-main-column,
+.dashboard-side-column {
+  display: grid;
+  gap: var(--space-5);
+  min-width: 0;
+}
+
+.dashboard-section-card {
+  min-width: 0;
+}
+
+.dashboard-period-control {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+}
+
+.dashboard-period-control label {
+  white-space: nowrap;
+}
+
+.dashboard-period-control select {
+  min-height: var(--control-height-sm);
+  max-width: 100%;
+  padding: 0 var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  font: inherit;
+}
+
+.dashboard-period-control select:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.dashboard-chart-figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.dashboard-sales-chart {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.dashboard-chart-gridline {
+  stroke: var(--color-border);
+  stroke-dasharray: 4 5;
+  stroke-width: 1;
+}
+
+.dashboard-chart-axis-label {
+  fill: var(--color-text-muted);
+  font-family: var(--font-family-base);
+  font-size: 11px;
+}
+
+.dashboard-chart-area {
+  fill: var(--color-brand-100);
+  opacity: 0.65;
+}
+
+.dashboard-chart-line {
+  fill: none;
+  stroke: var(--color-brand-600);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+}
+
+.dashboard-chart-point {
+  fill: var(--color-surface);
+  stroke: var(--color-brand-600);
+  stroke-width: 2.5;
+}
+
+.dashboard-chart-caption {
+  margin-top: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+}
+
+.dashboard-chart-empty .ui-text {
+  color: var(--color-text-primary);
+}
+
+.dashboard-bills-card .ui-card-header {
+  padding: var(--space-5) var(--space-5) 0;
+}
+
+.dashboard-bills-card .ui-card-content {
+  min-width: 0;
+}
+
+.dashboard-bills-card .data-table-wrapper {
+  border-color: var(--color-border);
+  background: var(--color-surface);
+}
+
+.dashboard-bills-card .data-table {
+  color: var(--color-text-primary);
+}
+
+.dashboard-bills-card .data-table th,
+.dashboard-bills-card .data-table tbody tr:hover {
+  background: var(--color-surface-muted);
+}
+
+.dashboard-bills-card .data-table th {
+  color: var(--color-text-secondary);
+}
+
+.dashboard-bills-card .data-table td {
+  border-color: var(--color-border);
+}
+
+.dashboard-bill-status {
+  border-color: var(--color-border);
+  background: var(--color-surface-muted);
+  color: var(--color-text-primary);
+}
+
+.dashboard-status-paid .status-badge-dot {
+  background: var(--color-success);
+}
+
+.dashboard-status-pending .status-badge-dot {
+  background: var(--color-warning);
+}
+
+.dashboard-status-part-paid .status-badge-dot {
+  background: var(--color-info);
+}
+
+.dashboard-invoice-number,
+.dashboard-money {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.dashboard-invoice-number {
+  color: var(--color-brand-700);
+  font-weight: var(--font-weight-semibold);
+}
+
+.dashboard-stock-list,
+.dashboard-quick-actions {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dashboard-stock-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-width: 0;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.dashboard-stock-item:last-child {
+  border-bottom: 0;
+}
+
+.dashboard-stock-indicator {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  background: var(--color-warning-surface);
+  color: var(--color-warning);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+}
+
+.dashboard-stock-copy,
+.dashboard-quick-copy {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.dashboard-stock-name,
+.dashboard-quick-title {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  overflow-wrap: anywhere;
+}
+
+.dashboard-stock-quantity,
+.dashboard-quick-description {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+}
+
+.dashboard-text-link {
+  color: var(--color-brand-700);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+}
+
+.dashboard-text-link:hover,
+.dashboard-quick-action:hover .dashboard-quick-title {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.dashboard-text-link:focus-visible,
+.dashboard-quick-action:focus-visible {
+  border-radius: var(--radius-sm);
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
+
+.dashboard-quick-action {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  color: inherit;
+  text-decoration: none;
+}
+
+.dashboard-quick-action:hover {
+  background: var(--color-surface-hover);
+}
+
+.dashboard-quick-icon {
+  width: 34px;
+  height: 34px;
+  font-size: var(--font-size-sm);
+}
+
+.dashboard-quick-copy {
+  flex: 1;
+}
+
+.dashboard-quick-arrow {
+  flex: 0 0 auto;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 1120px) {
+  .dashboard-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-content-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dashboard-side-column {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .dashboard-summary-grid,
+  .dashboard-side-column {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dashboard-summary-card {
+    min-height: 0;
+    padding: var(--space-4);
+  }
+
+  .dashboard-section-card .ui-card-header {
+    flex-wrap: wrap;
+  }
+
+  .dashboard-period-control {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .dashboard-period-control select {
+    flex: 1;
+  }
+
+  .dashboard-bills-card .ui-card-header {
+    padding: var(--space-4) var(--space-4) 0;
+  }
+}
