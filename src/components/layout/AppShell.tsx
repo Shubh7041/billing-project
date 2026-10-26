@@ -45,7 +45,7 @@ export function AppShell() {
 
       <div className="app-main">
         <Topbar
-          onMenuClick={() => setIsMobileMenuOpen(true)}
+          onMenuClick={() => setIsMobileMenuOpen((isOpen) => !isOpen)}
           isMobileMenuOpen={isMobileMenuOpen}
         />
 

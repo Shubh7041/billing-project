@@ -15,7 +15,7 @@ export function Topbar({ onMenuClick, isMobileMenuOpen }: TopbarProps) {
           type="button"
           className="icon-button mobile-menu-button"
           onClick={onMenuClick}
-          aria-label="Open navigation menu"
+          aria-label={`${isMobileMenuOpen ? "Close" : "Open"} navigation menu`}
           aria-controls="app-sidebar"
           aria-expanded={isMobileMenuOpen}
         >

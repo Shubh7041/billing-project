@@ -18,7 +18,7 @@ export function NotFoundPage() {
           This page may have moved, or the address may be incorrect.
         </Text>
 
-        <Button variant="danger" size="md"   >
+        <Button variant="danger"   >
           <Link className="not-found-link" to={ROUTES.dashboard}>
             Back to dashboard
           </Link>
