@@ -1,0 +1,19 @@
+
+.not-found-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 15px;
+  border-radius: 9px;
+  background: var(--color-primary);
+  color: #111111;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.not-found-link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}

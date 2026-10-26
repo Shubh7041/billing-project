@@ -1,23 +1,42 @@
-import { createBrowserRouter } from 'react-router-dom'
-import { AppLayout } from '@/components/layout/AppLayout'
-import { BillingPage } from '@/features/billing/BillingPage'
-import { DashboardPage } from '@/features/dashboard/DashboardPage'
-import { InventoryPage } from '@/features/inventory/InventoryPage'
-import { ProductsPage } from '@/features/products/ProductsPage'
-import { NotFoundPage } from './NotFoundPage'
-import { RouteErrorPage } from './RouteErrorPage'
+
+import { createBrowserRouter, Navigate } from "react-router-dom";
+import { AppShell } from "@/components/layout/AppShell";
+import { ROUTES } from "@/app/routePaths";
+import { DashboardPage } from "@/features/dashboard/DashboardPage";
+import { NotFoundPage } from "@/features/not-found/NotFoundPage";
+
+// Keep your existing imports for these pages.
+import { InventoryPage } from "@/features/inventory/InventoryPage";
+import { ProductsPage } from "@/features/products/ProductsPage";
 
 export const router = createBrowserRouter([
   {
-    path: '/',
-    element: <AppLayout />,
-    errorElement: <RouteErrorPage />,
+    element: <AppShell />,
     children: [
-      { index: true, element: <DashboardPage /> },
-      { path: 'billing', element: <BillingPage /> },
-      { path: 'inventory', element: <InventoryPage /> },
-      { path: 'products', element: <ProductsPage /> },
-      { path: '*', element: <NotFoundPage /> },
+      {
+        index: true,
+        element: <Navigate to={ROUTES.dashboard} replace />,
+      },
+      {
+        path: ROUTES.dashboard,
+        element: <DashboardPage />,
+      },
+      {
+        path: ROUTES.inventory,
+        element: <InventoryPage />,
+      },
+      {
+        path: ROUTES.products,
+        element: <ProductsPage />,
+      },
+
+      // Preserve your existing billing, purchases, suppliers,
+      // categories, customers, sales and reports routes here.
+
+      {
+        path: ROUTES.notFound,
+        element: <NotFoundPage />,
+      },
     ],
   },
-])
+]);
