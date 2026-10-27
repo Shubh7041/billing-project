@@ -2,6 +2,7 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { AppShell } from "@/components/layout/AppShell";
 import { ROUTES } from "@/app/routePaths";
+import { CategoriesPage } from "@/features/categories/CategoriesPage";
 import { DashboardPage } from "@/features/dashboard/DashboardPage";
 import { NotFoundPage } from "@/features/not-found/NotFoundPage";
 
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
       {
         path: ROUTES.products,
         element: <ProductsPage />,
+      },
+      {
+        path: ROUTES.categories,
+        element: <CategoriesPage />,
       },
 
       // Preserve your existing billing, purchases, suppliers,
