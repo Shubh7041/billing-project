@@ -7,7 +7,7 @@ const navigationGroups = [
     items: [
       { label: "Dashboard", path: "/dashboard", icon: "DB" },
       { label: "Fast Billing", path: "/billing", icon: "FB" },
-    //   { label: "Sales", path: "/sales", icon: "SL" },
+      { label: "Sales", path: "/sales", icon: "SL" },
     ],
   },
   {
@@ -20,13 +20,13 @@ const navigationGroups = [
       { label: "Suppliers", path: "/suppliers", icon: "SU" },
     ],
   },
-  {
-    title: "MANAGEMENT",
-    items: [
-      { label: "Customers", path: "/customers", icon: "CU" },
-      { label: "Reports", path: "/reports", icon: "RE" },
-    ],
-  },
+  // {
+  //   title: "MANAGEMENT",
+  //   items: [
+  //     { label: "Customers", path: "/customers", icon: "CU" },
+  //     { label: "Reports", path: "/reports", icon: "RE" },
+  //   ],
+  // },
 ];
 
 interface SidebarProps {
