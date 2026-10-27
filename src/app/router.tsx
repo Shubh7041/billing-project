@@ -2,6 +2,7 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { AppShell } from "@/components/layout/AppShell";
 import { ROUTES } from "@/app/routePaths";
+import { BillingPage } from "@/features/billing/BillingPage";
 import { CategoriesPage } from "@/features/categories/CategoriesPage";
 import { DashboardPage } from "@/features/dashboard/DashboardPage";
 import { NotFoundPage } from "@/features/not-found/NotFoundPage";
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
       {
         path: ROUTES.dashboard,
         element: <DashboardPage />,
+      },
+      {
+        path: ROUTES.billing,
+        element: <BillingPage />,
       },
       {
         path: ROUTES.inventory,
