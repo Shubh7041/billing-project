@@ -16,7 +16,7 @@ const navigationGroups = [
       { label: "Inventory", path: "/inventory", icon: "IN" },
       { label: "Products", path: "/products", icon: "PR" },
       { label: "Categories", path: "/categories", icon: "CA" },
-    //   { label: "Purchases", path: "/purchases", icon: "PU" },
+      { label: "Purchases", path: "/purchases", icon: "PU" },
       { label: "Suppliers", path: "/suppliers", icon: "SU" },
     ],
   },

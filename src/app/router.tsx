@@ -9,6 +9,7 @@ import { NotFoundPage } from "@/features/not-found/NotFoundPage";
 // Keep your existing imports for these pages.
 import { InventoryPage } from "@/features/inventory/InventoryPage";
 import { ProductsPage } from "@/features/products/ProductsPage";
+import { PurchasesPage } from "@/features/purchases/PurchasesPage";
 import { SuppliersPage } from "@/features/suppliers/SuppliersPage";
 
 export const router = createBrowserRouter([
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
       {
         path: ROUTES.suppliers,
         element: <SuppliersPage />,
+      },
+      {
+        path: ROUTES.purchases,
+        element: <PurchasesPage />,
       },
 
       // Preserve your existing billing, purchases, suppliers,
