@@ -185,6 +185,22 @@
   font-size: 12px;
 }
 
+.topbar-user-label {
+  max-width: 18rem;
+  overflow: hidden;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.topbar-auth-error {
+  max-width: 14rem;
+  color: var(--color-danger);
+  font-size: var(--font-size-xs);
+  overflow-wrap: anywhere;
+}
+
 .icon-button {
   display: inline-grid;
   place-items: center;
@@ -310,6 +326,10 @@
   }
 
   .topbar-store-label {
+    display: none;
+  }
+
+  .topbar-user-label {
     display: none;
   }
 
