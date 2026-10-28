@@ -11,6 +11,7 @@ import { NotFoundPage } from "@/features/not-found/NotFoundPage";
 import { InventoryPage } from "@/features/inventory/InventoryPage";
 import { ProductsPage } from "@/features/products/ProductsPage";
 import { PurchasesPage } from "@/features/purchases/PurchasesPage";
+import { ReportsPage } from "@/features/reports/ReportsPage";
 import { SalesPage } from "@/features/sales/SalesPage";
 import { SuppliersPage } from "@/features/suppliers/SuppliersPage";
 
@@ -53,6 +54,10 @@ export const router = createBrowserRouter([
       {
         path: ROUTES.sales,
         element: <SalesPage />,
+      },
+      {
+        path: ROUTES.reports,
+        element: <ReportsPage />,
       },
 
       // Preserve your existing billing, purchases, suppliers,

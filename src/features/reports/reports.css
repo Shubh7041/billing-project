@@ -1,0 +1,154 @@
+.reports-page {
+  display: grid;
+  gap: var(--space-5);
+  min-width: 0;
+  color: var(--color-text-primary);
+}
+
+.reports-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.reports-integration-notice {
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-warning-surface);
+  border-radius: var(--radius-md);
+  background: var(--color-warning-surface);
+  color: var(--color-warning);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+}
+
+.reports-controls {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.reports-controls-heading h2 {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-md);
+}
+
+.reports-controls-heading p {
+  margin: var(--space-1) 0 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.reports-filter-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.reports-filter-grid label {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.reports-filter-grid input,
+.reports-filter-grid select {
+  width: 100%;
+  min-width: 0;
+  min-height: var(--control-height-md);
+  padding: 8px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-muted);
+  color: var(--color-text-muted);
+  font: inherit;
+}
+
+.reports-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.report-metric-card {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.report-metric-card p,
+.report-metric-card span {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.report-metric-card strong {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xl);
+  font-variant-numeric: tabular-nums;
+}
+
+.report-metric-card span {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-normal);
+}
+
+.reports-content-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+  min-width: 0;
+}
+
+.report-panel {
+  min-width: 0;
+}
+
+.report-panel .ui-card-title {
+  color: var(--color-text-primary);
+}
+
+.report-panel .ui-card-description {
+  color: var(--color-text-secondary);
+}
+
+.reports-integrity-note {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-relaxed);
+}
+
+@media (max-width: 980px) {
+  .reports-metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .reports-actions {
+    width: 100%;
+  }
+
+  .reports-actions .ui-button {
+    flex: 1;
+  }
+
+  .reports-filter-grid,
+  .reports-metric-grid,
+  .reports-content-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .reports-controls {
+    padding: var(--space-4);
+  }
+}
