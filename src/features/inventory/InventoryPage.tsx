@@ -1,7 +1,8 @@
 
 import { useMemo, useState } from "react";
+import { Eye, Info, ListFilter, Plus, Search } from "lucide-react";
 import { PageContainer } from "../../components/layout/PageContainer";
-import { Button, Card, DataTable, EmptyState } from "../../components/ui";
+import { Button, Card, DataTable, EmptyState, Icon } from "../../components/ui";
 import type { DataTableColumn } from "../../components/ui";
 import { useCatalogDemo } from "../catalog/catalogDemoContext";
 import type { Product } from "../catalog/catalogTypes";
@@ -99,6 +100,7 @@ export function InventoryPage() {
           aria-label={`View stock movement history for ${product.name}`}
           onClick={() => setSelectedProductId(product.id)}
         >
+          <Icon icon={Eye} size={15} />
           Movement history
         </Button>
       ),
@@ -114,12 +116,14 @@ export function InventoryPage() {
           disabled
           title="Stock adjustments are unavailable until an authorized database operation is reviewed."
         >
+          <Icon icon={Plus} size={16} />
           Stock adjustment unavailable
         </Button>
       }
     >
       <div className="inventory-page">
         <div className="inventory-demo-notice" role="note">
+          <Icon icon={Info} size={16} />
           Catalog preview only. Live stock balances and movement history are disabled because inventory reads are not authorized for the client. No quantities or ledger entries are simulated.
         </div>
 
@@ -130,7 +134,7 @@ export function InventoryPage() {
         >
           <div className="inventory-toolbar">
             <label className="inventory-filter-field" htmlFor="inventory-search">
-              <span>Search products</span>
+              <span><Icon icon={Search} size={15} /> Search products</span>
               <input
                 id="inventory-search"
                 type="search"
@@ -140,7 +144,7 @@ export function InventoryPage() {
               />
             </label>
             <label className="inventory-filter-field" htmlFor="inventory-category">
-              <span>Category</span>
+              <span><Icon icon={ListFilter} size={15} /> Category</span>
               <select
                 id="inventory-category"
                 value={categoryFilter}

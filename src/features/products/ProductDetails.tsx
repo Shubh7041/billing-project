@@ -1,4 +1,5 @@
-import { Button, Card, StatusBadge } from "../../components/ui";
+import { Pencil, X } from "lucide-react";
+import { Button, Card, Icon, StatusBadge } from "../../components/ui";
 import type { Category, Product } from "../catalog/catalogTypes";
 
 interface ProductDetailsProps {
@@ -32,8 +33,8 @@ export function ProductDetails({
       description={`SKU ${product.sku} · ${category?.name ?? "Uncategorized"}`}
       headerAction={
         <div className="catalog-row-actions">
-          <Button size="sm" onClick={onEdit}>Edit product</Button>
-          <Button size="sm" variant="outline" onClick={onClose}>Close</Button>
+          <Button size="sm" onClick={onEdit}><Icon icon={Pencil} size={15} /> Edit product</Button>
+          <Button size="sm" variant="outline" onClick={onClose}><Icon icon={X} size={15} /> Close</Button>
         </div>
       }
     >

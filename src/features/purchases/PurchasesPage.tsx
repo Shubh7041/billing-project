@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
+import { Eye, ListFilter, Plus, Search } from "lucide-react";
 import { PageContainer } from "../../components/layout/PageContainer";
-import { Button, Card, DataTable, EmptyState, StatusBadge } from "../../components/ui";
+import { Button, Card, DataTable, EmptyState, Icon, StatusBadge } from "../../components/ui";
 import type { DataTableColumn } from "../../components/ui";
 import { CatalogDemoNotice } from "../catalog/CatalogDemoNotice";
 import { useCatalogDemo } from "../catalog/catalogDemoContext";
@@ -112,6 +113,7 @@ export function PurchasesPage() {
             setSelectedPurchaseId(purchase.id);
           }}
         >
+          <Icon icon={Eye} size={14} />
           {purchase.purchaseNumber}
         </button>
       ),
@@ -142,7 +144,7 @@ export function PurchasesPage() {
       title="Purchases"
       description="Review supplier purchases and draft receipts."
       actions={
-        <Button onClick={startNewDraft}>New purchase</Button>
+        <Button onClick={startNewDraft}><Icon icon={Plus} size={16} /> New purchase</Button>
       }
     >
       <div className="purchases-page">
@@ -177,7 +179,7 @@ export function PurchasesPage() {
         >
           <div className="purchase-list-filters">
             <label className="purchase-filter-field" htmlFor="purchase-search">
-              <span>Search purchases</span>
+              <span><Icon icon={Search} size={15} /> Search purchases</span>
               <input
                 id="purchase-search"
                 type="search"
@@ -187,7 +189,7 @@ export function PurchasesPage() {
               />
             </label>
             <label className="purchase-filter-field" htmlFor="purchase-status-filter">
-              <span>Status</span>
+              <span><Icon icon={ListFilter} size={15} /> Status</span>
               <select
                 id="purchase-status-filter"
                 value={statusFilter}
@@ -205,7 +207,7 @@ export function PurchasesPage() {
             <EmptyState
               title={search || statusFilter !== "all" ? "No matching purchases" : "No purchases yet"}
               description={search || statusFilter !== "all" ? "Try a different search or status." : "Create a draft purchase to begin."}
-              action={purchases.length === 0 ? <Button onClick={startNewDraft}>New purchase</Button> : undefined}
+              action={purchases.length === 0 ? <Button onClick={startNewDraft}><Icon icon={Plus} size={16} /> New purchase</Button> : undefined}
             />
           ) : (
             <DataTable

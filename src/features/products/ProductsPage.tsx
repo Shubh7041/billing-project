@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
+import { CheckCircle2, CircleAlert, Eye, ListFilter, Pencil, Plus, Search, X } from "lucide-react";
 import { PageContainer } from "../../components/layout/PageContainer";
-import { Button, Card, DataTable, EmptyState, StatusBadge } from "../../components/ui";
+import { Button, Card, DataTable, EmptyState, Icon, StatusBadge } from "../../components/ui";
 import type { DataTableColumn } from "../../components/ui";
 import { CatalogDemoNotice } from "../catalog/CatalogDemoNotice";
 import { useCatalogDemo } from "../catalog/catalogDemoContext";
@@ -80,7 +81,7 @@ export function ProductsPage() {
           className="catalog-product-link"
           onClick={() => setSelectedProduct(product)}
         >
-          <strong>{product.name}</strong>
+          <strong>{product.name}<Icon icon={Eye} size={14} /></strong>
           <span>{product.sku}</span>
         </button>
       ),
@@ -131,9 +132,11 @@ export function ProductsPage() {
       render: (product) => (
         <div className="catalog-row-actions">
           <Button size="sm" variant="ghost" onClick={() => startEdit(product)}>
+            <Icon icon={Pencil} size={15} />
             Edit
           </Button>
           <Button size="sm" variant="outline" onClick={() => toggleProduct(product)}>
+            <Icon icon={product.isActive ? CircleAlert : CheckCircle2} size={15} />
             {product.isActive ? "Deactivate" : "Activate"}
           </Button>
         </div>
@@ -153,6 +156,7 @@ export function ProductsPage() {
             setShowForm((current) => !current);
           }}
         >
+          <Icon icon={showForm && !editingProduct ? X : Plus} size={16} />
           {showForm && !editingProduct ? "Close form" : "Add product"}
         </Button>
       }
@@ -188,7 +192,7 @@ export function ProductsPage() {
         >
           <div className="catalog-toolbar">
             <label className="catalog-search-field" htmlFor="product-search">
-              <span>Search products</span>
+              <span><Icon icon={Search} size={15} /> Search products</span>
               <input
                 id="product-search"
                 type="search"
@@ -198,7 +202,7 @@ export function ProductsPage() {
               />
             </label>
             <label className="catalog-filter-field" htmlFor="product-category-filter">
-              <span>Category</span>
+              <span><Icon icon={ListFilter} size={15} /> Category</span>
               <select
                 id="product-category-filter"
                 value={categoryFilter}

@@ -1,6 +1,12 @@
 
 /* Buttons */
 
+.ui-icon {
+  display: inline-block;
+  flex: 0 0 auto;
+  vertical-align: middle;
+}
+
 .ui-button {
   display: inline-flex;
   align-items: center;
@@ -97,12 +103,9 @@
 }
 
 .ui-button-spinner {
-  width: 14px;
-  height: 14px;
+  width: 15px;
+  height: 15px;
   flex-shrink: 0;
-  border: 2px solid currentColor;
-  border-right-color: transparent;
-  border-radius: 50%;
   animation: ui-spin 650ms linear infinite;
 }
 

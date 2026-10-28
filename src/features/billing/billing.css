@@ -16,6 +16,9 @@
 }
 
 .billing-demo-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
   padding: var(--space-3) var(--space-4);
   border: 1px solid var(--color-warning-surface);
   border-radius: var(--radius-md);
@@ -79,6 +82,9 @@
 
 .billing-search-field > span,
 .billing-payment-amount > label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
   color: var(--color-text-primary);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);

@@ -1,4 +1,5 @@
-import { Button, Card, EmptyState } from "../../components/ui";
+import { CalendarDays, CircleAlert, Download, Printer } from "lucide-react";
+import { Button, Card, EmptyState, Icon } from "../../components/ui";
 import { PageContainer } from "../../components/layout/PageContainer";
 import "./reports.css";
 
@@ -22,6 +23,7 @@ export function ReportsPage() {
             disabled
             title="There is no authorized report dataset to export."
           >
+            <Icon icon={Download} size={16} />
             Export CSV unavailable
           </Button>
           <Button
@@ -30,6 +32,7 @@ export function ReportsPage() {
             disabled
             title="There are no persisted report records to print."
           >
+            <Icon icon={Printer} size={16} />
             Print unavailable
           </Button>
         </div>
@@ -37,6 +40,7 @@ export function ReportsPage() {
     >
       <div className="reports-page">
         <div className="reports-integration-notice" role="status">
+          <Icon icon={CircleAlert} size={17} />
           Reports are unavailable: the current billing flow creates only local receipt previews, and no authorized sales or inventory reporting reads are configured.
         </div>
 
@@ -49,11 +53,11 @@ export function ReportsPage() {
           </div>
           <div className="reports-filter-grid" aria-describedby="reports-controls-help">
             <label>
-              <span>From</span>
+              <span><Icon icon={CalendarDays} size={15} /> From</span>
               <input type="date" disabled aria-label="Report start date unavailable" />
             </label>
             <label>
-              <span>To</span>
+              <span><Icon icon={CalendarDays} size={15} /> To</span>
               <input type="date" disabled aria-label="Report end date unavailable" />
             </label>
             <label>

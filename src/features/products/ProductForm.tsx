@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react";
-import { Button, Card } from "../../components/ui";
+import { CheckCircle2, Plus, X } from "lucide-react";
+import { Button, Card, Icon } from "../../components/ui";
 import { useCatalogDemo } from "../catalog/catalogDemoContext";
 import type { Product, ProductInput, ProductUnit } from "../catalog/catalogTypes";
 import { ProductUnitEditor } from "./ProductUnitEditor";
@@ -192,8 +193,12 @@ export function ProductForm({ product, onSubmit, onCancel }: ProductFormProps) {
         {error && <p className="catalog-form-error" role="alert">{error}</p>}
 
         <div className="catalog-form-actions">
-          <Button type="submit">{product ? "Save product" : "Create product"}</Button>
+          <Button type="submit">
+            <Icon icon={product ? CheckCircle2 : Plus} size={16} />
+            {product ? "Save product" : "Create product"}
+          </Button>
           <Button type="button" variant="outline" onClick={onCancel}>
+            <Icon icon={X} size={15} />
             Cancel
           </Button>
         </div>

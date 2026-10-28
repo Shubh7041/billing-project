@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react";
-import { Button, Card } from "../../components/ui";
+import { CheckCircle2, Plus, X } from "lucide-react";
+import { Button, Card, Icon } from "../../components/ui";
 import type { Category, CategoryInput } from "../catalog/catalogTypes";
 
 interface CategoryFormProps {
@@ -78,8 +79,12 @@ export function CategoryForm({ category, onSubmit, onCancel }: CategoryFormProps
         )}
 
         <div className="catalog-form-actions">
-          <Button type="submit">{category ? "Save category" : "Create category"}</Button>
+          <Button type="submit">
+            <Icon icon={category ? CheckCircle2 : Plus} size={16} />
+            {category ? "Save category" : "Create category"}
+          </Button>
           <Button type="button" variant="outline" onClick={onCancel}>
+            <Icon icon={X} size={15} />
             Cancel
           </Button>
         </div>

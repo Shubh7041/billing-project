@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
+import { CheckCircle2, CircleAlert, Pencil, Plus, Search, X } from "lucide-react";
 import { PageContainer } from "../../components/layout/PageContainer";
-import { Button, Card, DataTable, StatusBadge } from "../../components/ui";
+import { Button, Card, DataTable, Icon, StatusBadge } from "../../components/ui";
 import type { DataTableColumn } from "../../components/ui";
 import { CatalogDemoNotice } from "../catalog/CatalogDemoNotice";
 import { useCatalogDemo } from "../catalog/catalogDemoContext";
@@ -93,6 +94,7 @@ export function CategoriesPage() {
               setShowForm(true);
             }}
           >
+            <Icon icon={Pencil} size={15} />
             Edit
           </Button>
           <Button
@@ -100,6 +102,7 @@ export function CategoriesPage() {
             variant="outline"
             onClick={() => toggleCategory(category)}
           >
+            <Icon icon={category.isActive ? CircleAlert : CheckCircle2} size={15} />
             {category.isActive ? "Deactivate" : "Activate"}
           </Button>
         </div>
@@ -118,6 +121,7 @@ export function CategoriesPage() {
             setShowForm((current) => !current);
           }}
         >
+          <Icon icon={showForm && !editingCategory ? X : Plus} size={16} />
           {showForm && !editingCategory ? "Close form" : "Create category"}
         </Button>
       }
@@ -144,7 +148,7 @@ export function CategoriesPage() {
         >
           <div className="catalog-toolbar">
             <label className="catalog-search-field" htmlFor="category-search">
-              <span>Search categories</span>
+              <span><Icon icon={Search} size={15} /> Search categories</span>
               <input
                 id="category-search"
                 type="search"

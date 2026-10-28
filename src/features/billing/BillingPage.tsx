@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { Info } from "lucide-react";
 import { PageContainer } from "../../components/layout/PageContainer";
+import { Icon } from "../../components/ui";
 import { useCatalogDemo } from "../catalog/catalogDemoContext";
 import type { Product, ProductUnit } from "../catalog/catalogTypes";
 import { BillingProductSearch } from "./BillingProductSearch";
@@ -87,6 +89,7 @@ export function BillingPage() {
     >
       <div className="billing-page">
         <div className="billing-demo-notice" role="note">
+          <Icon icon={Info} size={16} />
           Demo mode · Cart, payment, and receipt are not saved. Live stock, checkout, payments, and invoice numbering are not connected.
         </div>
 

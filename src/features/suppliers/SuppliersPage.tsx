@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
+import { Building2, CheckCircle2, CircleAlert, Eye, Pencil, Plus, Search, X } from "lucide-react";
 import { PageContainer } from "../../components/layout/PageContainer";
-import { Button, Card, DataTable, EmptyState, StatusBadge } from "../../components/ui";
+import { Button, Card, DataTable, EmptyState, Icon, StatusBadge } from "../../components/ui";
 import type { DataTableColumn } from "../../components/ui";
 import { CatalogDemoNotice } from "../catalog/CatalogDemoNotice";
 import { SupplierDetails } from "./SupplierDetails";
@@ -86,7 +87,7 @@ export function SuppliersPage() {
           type="button"
           onClick={() => setSelectedSupplier(supplier)}
         >
-          <strong>{supplier.name}</strong>
+          <strong><Icon icon={Building2} size={15} />{supplier.name}</strong>
           {supplier.contactPerson && <span>{supplier.contactPerson}</span>}
         </button>
       ),
@@ -107,9 +108,14 @@ export function SuppliersPage() {
       header: "Actions",
       render: (supplier) => (
         <div className="supplier-row-actions">
-          <Button size="sm" variant="ghost" onClick={() => setSelectedSupplier(supplier)}>View</Button>
-          <Button size="sm" variant="ghost" onClick={() => startEdit(supplier)}>Edit</Button>
+          <Button size="sm" variant="ghost" onClick={() => setSelectedSupplier(supplier)}>
+            <Icon icon={Eye} size={15} /> View
+          </Button>
+          <Button size="sm" variant="ghost" onClick={() => startEdit(supplier)}>
+            <Icon icon={Pencil} size={15} /> Edit
+          </Button>
           <Button size="sm" variant="outline" onClick={() => toggleActive(supplier)}>
+            <Icon icon={supplier.isActive ? CircleAlert : CheckCircle2} size={15} />
             {supplier.isActive ? "Deactivate" : "Activate"}
           </Button>
         </div>
@@ -130,6 +136,7 @@ export function SuppliersPage() {
             setShowForm((current) => !current);
           }}
         >
+          <Icon icon={showForm && !editingSupplier ? X : Plus} size={16} />
           {showForm && !editingSupplier ? "Close form" : "Add supplier"}
         </Button>
       }
@@ -165,7 +172,7 @@ export function SuppliersPage() {
           description={`${suppliers.length} suppliers in this demo directory`}
         >
           <label className="supplier-search" htmlFor="supplier-search">
-            <span>Search suppliers</span>
+            <span><Icon icon={Search} size={15} /> Search suppliers</span>
             <input
               id="supplier-search"
               type="search"

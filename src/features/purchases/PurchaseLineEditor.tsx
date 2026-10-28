@@ -1,4 +1,5 @@
-import { Button } from "../../components/ui";
+import { Trash2 } from "lucide-react";
+import { Button, Icon } from "../../components/ui";
 import type { Product, ProductUnit } from "../catalog/catalogTypes";
 import {
   calculateLineMinorUnits,
@@ -131,6 +132,7 @@ export function PurchaseLineEditor({
           <strong>{lineTotal === null ? "Enter a valid quantity and cost" : formatInrMinorUnits(lineTotal)}</strong>
         </div>
         <Button type="button" size="sm" variant="ghost" onClick={onRemove}>
+          <Icon icon={Trash2} size={15} />
           Remove line
         </Button>
       </div>

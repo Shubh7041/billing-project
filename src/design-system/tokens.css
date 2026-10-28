@@ -144,6 +144,10 @@
   --color-warning-surface: #3b301b;
   --color-danger-surface: #402326;
   --color-info-surface: #1d3347;
+  --color-success: #63d19a;
+  --color-warning: #f2c66d;
+  --color-danger: #ff8b8b;
+  --color-info: #79b9f4;
 
   --shadow-sm: 0 1px 2px rgb(0 0 0 / 15%);
   --shadow-md: 0 4px 12px rgb(0 0 0 / 20%);

@@ -47,6 +47,9 @@
 }
 
 .supplier-search span {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
   color: var(--color-text-primary);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
@@ -260,4 +263,10 @@
   .supplier-form-actions > .ui-button {
     flex: 1;
   }
+}
+
+.supplier-name-button strong {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
 }

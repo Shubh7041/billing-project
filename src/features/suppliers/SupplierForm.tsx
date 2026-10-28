@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react";
-import { Button, Card } from "../../components/ui";
+import { CheckCircle2, Plus, X } from "lucide-react";
+import { Button, Card, Icon } from "../../components/ui";
 import type { Supplier, SupplierInput } from "./supplierTypes";
 
 type SupplierField = keyof SupplierInput;
@@ -157,8 +158,13 @@ export function SupplierForm({ supplier, onSave, onCancel }: SupplierFormProps) 
         </label>
 
         <div className="supplier-form-actions">
-          <Button type="submit">{supplier ? "Save changes" : "Add supplier"}</Button>
-          <Button type="button" variant="outline" onClick={onCancel}>Cancel</Button>
+          <Button type="submit">
+            <Icon icon={supplier ? CheckCircle2 : Plus} size={16} />
+            {supplier ? "Save changes" : "Add supplier"}
+          </Button>
+          <Button type="button" variant="outline" onClick={onCancel}>
+            <Icon icon={X} size={15} /> Cancel
+          </Button>
         </div>
       </form>
     </Card>

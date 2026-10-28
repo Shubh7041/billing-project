@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { AlertTriangle, ChevronDown, ChevronRight, Pencil } from "lucide-react";
 import { Button, Card, DataTable, EmptyState, StatusBadge } from "../../components/ui";
+import { Icon } from "../../components/ui";
 import type { DataTableColumn } from "../../components/ui";
 import type { Supplier } from "../suppliers/supplierTypes";
 import { calculateLineMinorUnits, calculateReceivedBaseQuantity, formatBaseQuantity, formatInrMinorUnits, parseInrToMinorUnits } from "./purchaseDemoData";
@@ -67,8 +69,11 @@ export function PurchaseDetails({ purchase, supplier, onEdit }: PurchaseDetailsP
             </StatusBadge>
             {purchase.status === "draft" && (
               <>
-                <Button size="sm" variant="outline" onClick={onEdit}>Edit draft</Button>
+                <Button size="sm" variant="outline" onClick={onEdit}>
+                  <Icon icon={Pencil} size={15} /> Edit draft
+                </Button>
                 <Button size="sm" variant="ghost" onClick={() => setShowPostReview((current) => !current)}>
+                  <Icon icon={showPostReview ? ChevronDown : ChevronRight} size={15} />
                   {showPostReview ? "Hide review" : "Review receipt"}
                 </Button>
               </>
@@ -118,6 +123,7 @@ export function PurchaseDetails({ purchase, supplier, onEdit }: PurchaseDetailsP
             <strong>{formatInrMinorUnits(displayedTotal)}</strong>
           </div>
           <Button type="button" disabled title="Purchasing RPC verification is pending">
+            <Icon icon={AlertTriangle} size={16} />
             Posting disabled until backend verification
           </Button>
         </section>

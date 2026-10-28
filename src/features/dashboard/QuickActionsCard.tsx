@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../app/routePaths";
 import { Card } from "../../components/ui";
+import { Icon } from "../../components/ui";
+import { ChevronRight, PackagePlus, ShoppingCart, Truck } from "lucide-react";
 
 const quickActions = [
   {
@@ -8,21 +10,21 @@ const quickActions = [
     title: "Fast billing",
     description: "Start a counter sale",
     to: ROUTES.billing,
-    symbol: "B",
+    icon: ShoppingCart,
   },
   {
     id: "product",
     title: "Add product",
     description: "Open the product catalogue",
     to: ROUTES.products,
-    symbol: "P",
+    icon: PackagePlus,
   },
   {
     id: "purchase",
     title: "New purchase",
     description: "Review inventory before receiving",
     to: ROUTES.inventory,
-    symbol: "+",
+    icon: Truck,
   },
 ];
 
@@ -41,7 +43,7 @@ export function QuickActionsCard() {
             to={action.to}
           >
             <span className="dashboard-quick-icon" aria-hidden="true">
-              {action.symbol}
+              <Icon icon={action.icon} size={18} />
             </span>
             <span className="dashboard-quick-copy">
               <span className="dashboard-quick-title">{action.title}</span>
@@ -49,9 +51,7 @@ export function QuickActionsCard() {
                 {action.description}
               </span>
             </span>
-            <span className="dashboard-quick-arrow" aria-hidden="true">
-              →
-            </span>
+            <Icon className="dashboard-quick-arrow" icon={ChevronRight} size={18} />
           </Link>
         ))}
       </div>

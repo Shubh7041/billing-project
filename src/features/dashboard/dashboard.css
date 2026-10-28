@@ -57,8 +57,7 @@
   border-radius: var(--radius-md);
   background: var(--color-brand-50);
   color: var(--color-brand-700);
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-bold);
+  color: var(--color-brand-700);
 }
 
 .dashboard-summary-icon-bills {
@@ -239,16 +238,16 @@
   color: var(--color-text-primary);
 }
 
-.dashboard-status-paid .status-badge-dot {
-  background: var(--color-success);
+.dashboard-status-paid .status-badge-icon {
+  color: var(--color-success);
 }
 
-.dashboard-status-pending .status-badge-dot {
-  background: var(--color-warning);
+.dashboard-status-pending .status-badge-icon {
+  color: var(--color-warning);
 }
 
-.dashboard-status-part-paid .status-badge-dot {
-  background: var(--color-info);
+.dashboard-status-part-paid .status-badge-icon {
+  color: var(--color-info);
 }
 
 .dashboard-invoice-number,
@@ -356,7 +355,6 @@
 .dashboard-quick-icon {
   width: 34px;
   height: 34px;
-  font-size: var(--font-size-sm);
 }
 
 .dashboard-quick-copy {
@@ -364,7 +362,6 @@
 }
 
 .dashboard-quick-arrow {
-  flex: 0 0 auto;
   color: var(--color-text-muted);
 }
 

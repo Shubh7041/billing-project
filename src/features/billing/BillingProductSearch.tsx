@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
-import { Card, EmptyState } from "../../components/ui";
+import { Plus, Search } from "lucide-react";
+import { Card, EmptyState, Icon } from "../../components/ui";
 import type { Product, ProductUnit } from "../catalog/catalogTypes";
 import { formatMoney, parseMoneyToMinorUnits } from "./billingMoney";
 
@@ -22,7 +23,7 @@ export function BillingProductSearch({ products, onAdd }: BillingProductSearchPr
   return (
     <Card className="billing-card billing-product-search" title="Find products" description="Search by product name or SKU. Barcode values are not stored in the current catalog schema.">
       <label className="billing-search-field" htmlFor="billing-product-search">
-        <span>Product search</span>
+        <span><Icon icon={Search} size={15} /> Product search</span>
         <input
           id="billing-product-search"
           type="search"
@@ -72,6 +73,7 @@ export function BillingProductSearch({ products, onAdd }: BillingProductSearchPr
                           onClick={() => onAdd(product, unit)}
                           aria-label={`Add ${product.name}, ${unit.unitName}, ${price === null ? "price unavailable" : formatMoney(price)}`}
                         >
+                          <Icon icon={Plus} size={15} />
                           <span>{unit.unitName}</span>
                           <strong>{price === null ? "Price unavailable" : formatMoney(price)}</strong>
                           <small>1 {unit.unitName} = {unit.baseQuantity} {product.units.find((baseUnit) => baseUnit.isBaseUnit)?.unitName ?? product.baseUnitCode}</small>

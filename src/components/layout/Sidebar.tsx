@@ -1,32 +1,53 @@
 
 import { NavLink } from "react-router-dom";
+import type { LucideIcon } from "lucide-react";
+import {
+  Building2,
+  Boxes,
+  ChartNoAxesCombined,
+  LayoutDashboard,
+  Package,
+  ReceiptText,
+  ShoppingCart,
+  Tags,
+  Truck,
+} from "lucide-react";
+import { Icon } from "../ui";
 
-const navigationGroups = [
+interface NavigationItem {
+  label: string;
+  path: string;
+  icon: LucideIcon;
+}
+
+interface NavigationGroup {
+  title: string;
+  items: NavigationItem[];
+}
+
+const navigationGroups: NavigationGroup[] = [
   {
     title: "WORKSPACE",
     items: [
-      { label: "Dashboard", path: "/dashboard", icon: "DB" },
-      { label: "Fast Billing", path: "/billing", icon: "FB" },
-      { label: "Sales", path: "/sales", icon: "SL" },
+      { label: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
+      { label: "Fast Billing", path: "/billing", icon: ShoppingCart },
+      { label: "Sales", path: "/sales", icon: ReceiptText },
     ],
   },
   {
     title: "INVENTORY",
     items: [
-      { label: "Inventory", path: "/inventory", icon: "IN" },
-      { label: "Products", path: "/products", icon: "PR" },
-      { label: "Categories", path: "/categories", icon: "CA" },
-      { label: "Purchases", path: "/purchases", icon: "PU" },
-      { label: "Suppliers", path: "/suppliers", icon: "SU" },
+      { label: "Inventory", path: "/inventory", icon: Boxes },
+      { label: "Products", path: "/products", icon: Package },
+      { label: "Categories", path: "/categories", icon: Tags },
+      { label: "Purchases", path: "/purchases", icon: Truck },
+      { label: "Suppliers", path: "/suppliers", icon: Building2 },
     ],
   },
-  // {
-  //   title: "MANAGEMENT",
-  //   items: [
-  //     { label: "Customers", path: "/customers", icon: "CU" },
-  //     { label: "Reports", path: "/reports", icon: "RE" },
-  //   ],
-  // },
+  {
+    title: "MANAGEMENT",
+    items: [{ label: "Reports", path: "/reports", icon: ChartNoAxesCombined }],
+  },
 ];
 
 interface SidebarProps {
@@ -61,7 +82,7 @@ export function Sidebar({ onNavigate }: SidebarProps) {
                 }
               >
                 <span className="sidebar-link-icon" aria-hidden="true">
-                  {item.icon}
+                  <Icon icon={item.icon} size={18} />
                 </span>
                 <span>{item.label}</span>
               </NavLink>

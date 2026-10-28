@@ -1,4 +1,5 @@
-import { Button, Card } from "../../components/ui";
+import { ArrowLeft, Printer } from "lucide-react";
+import { Button, Card, Icon } from "../../components/ui";
 import { formatMoney } from "./billingMoney";
 import type { DemoReceiptPreview } from "./billingTypes";
 
@@ -48,9 +49,12 @@ export function ReceiptPreview({ receipt, onClose }: ReceiptPreviewProps) {
       </div>
       <div className="billing-receipt-actions">
         <Button type="button" variant="outline" onClick={() => window.print()}>
+          <Icon icon={Printer} size={16} />
           Print preview
         </Button>
-        <Button type="button" onClick={onClose}>Return to billing</Button>
+        <Button type="button" onClick={onClose}>
+          <Icon icon={ArrowLeft} size={16} /> Return to billing
+        </Button>
       </div>
     </Card>
   );

@@ -1,5 +1,6 @@
 
 import type { ButtonHTMLAttributes, ReactNode } from "react";
+import { LoaderCircle } from "lucide-react";
 import "./ui.css";
 
 export type ButtonVariant =
@@ -49,7 +50,7 @@ export function Button({
       aria-busy={loading || undefined}
     >
       {loading && (
-        <span className="ui-button-spinner" aria-hidden="true" />
+        <LoaderCircle className="ui-button-spinner" aria-hidden="true" />
       )}
       <span>{children}</span>
     </button>

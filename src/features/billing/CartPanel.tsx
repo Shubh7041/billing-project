@@ -1,4 +1,5 @@
-import { Button, Card, EmptyState } from "../../components/ui";
+import { ArrowRight, Trash2 } from "lucide-react";
+import { Button, Card, EmptyState, Icon } from "../../components/ui";
 import {
   calculateBaseQuantity,
   calculateCartLineTotal,
@@ -64,6 +65,7 @@ export function CartPanel({ lines, onChangeQuantity, onRemove, onReview }: CartP
                       aria-label={`Quantity for ${line.productName}, ${line.unitName}`}
                     />
                     <Button type="button" size="sm" variant="ghost" onClick={() => onRemove(line.id)}>
+                      <Icon icon={Trash2} size={15} />
                       Remove
                     </Button>
                   </div>
@@ -85,6 +87,7 @@ export function CartPanel({ lines, onChangeQuantity, onRemove, onReview }: CartP
             disabled={lines.length === 0 || invalidTotal || subtotal === null}
             onClick={onReview}
           >
+            <Icon icon={ArrowRight} size={16} />
             Review checkout
           </Button>
         </>

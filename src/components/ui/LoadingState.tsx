@@ -1,4 +1,5 @@
 
+import { LoaderCircle } from "lucide-react";
 import "./data-display.css";
 
 interface LoadingStateProps {
@@ -16,7 +17,7 @@ export function LoadingState({
       role="status"
       aria-live="polite"
     >
-      <span className="loading-state-spinner" aria-hidden="true" />
+      <LoaderCircle className="loading-state-spinner" aria-hidden="true" />
       <span>{message}</span>
     </div>
   );

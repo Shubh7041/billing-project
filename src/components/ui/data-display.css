@@ -15,6 +15,10 @@
   white-space: nowrap;
 }
 
+.status-badge-icon {
+  flex: 0 0 auto;
+}
+
 .status-badge-dot {
   width: 6px;
   height: 6px;
@@ -24,27 +28,27 @@
 }
 
 .status-badge-success {
-  border-color: #b9e8d1;
-  background: #eaf8f0;
-  color: #18794e;
+  border-color: var(--color-success-surface);
+  background: var(--color-success-surface);
+  color: var(--color-success);
 }
 
 .status-badge-warning {
-  border-color: #f4d9a0;
-  background: #fff6df;
-  color: #8a5b00;
+  border-color: var(--color-warning-surface);
+  background: var(--color-warning-surface);
+  color: var(--color-warning);
 }
 
 .status-badge-danger {
-  border-color: #f2c4c0;
-  background: #fff0ef;
-  color: #b42318;
+  border-color: var(--color-danger-surface);
+  background: var(--color-danger-surface);
+  color: var(--color-danger);
 }
 
 .status-badge-info {
-  border-color: #c5dcfa;
-  background: #edf5ff;
-  color: #175cd3;
+  border-color: var(--color-info-surface);
+  background: var(--color-info-surface);
+  color: var(--color-info);
 }
 
 .status-badge-neutral {
@@ -84,9 +88,6 @@
   width: 20px;
   height: 20px;
   flex-shrink: 0;
-  border: 2px solid var(--color-border);
-  border-top-color: var(--color-primary);
-  border-radius: 50%;
   animation: data-display-spin 700ms linear infinite;
 }
 

@@ -1,6 +1,7 @@
 
 export { Button } from "./Button";
 export type { ButtonSize, ButtonVariant } from "./Button";
+export { Icon } from "./Icon";
 
 export { Text } from "./Text";
 export type { TextTone, TextVariant } from "./Text";

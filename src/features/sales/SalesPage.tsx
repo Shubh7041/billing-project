@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
+import { ArrowLeft, CircleAlert, Printer } from "lucide-react";
 import { ROUTES } from "../../app/routePaths";
 import { PageContainer } from "../../components/layout/PageContainer";
-import { Button, Card, EmptyState } from "../../components/ui";
+import { Button, Card, EmptyState, Icon } from "../../components/ui";
 import "./sales.css";
 
 export function SalesPage() {
@@ -12,6 +13,7 @@ export function SalesPage() {
     >
       <div className="sales-page">
         <div className="sales-integration-notice" role="status">
+          <Icon icon={CircleAlert} size={17} />
           Sales history is unavailable. The current billing screen only creates
           a local demo receipt preview; it does not persist a sale.
         </div>
@@ -26,6 +28,7 @@ export function SalesPage() {
             description="Invoice search, date and payment filters, sale details, and reprinting will appear after a verified read-only sales integration is available."
             action={
               <Button type="button" disabled>
+                <Icon icon={Printer} size={16} />
                 Invoice reprint unavailable
               </Button>
             }
@@ -38,6 +41,7 @@ export function SalesPage() {
             confirms it was persisted. The current billing flow is demo-only.
           </p>
           <Link className="sales-billing-link" to={ROUTES.billing}>
+            <Icon icon={ArrowLeft} size={15} />
             Return to demo billing
           </Link>
         </Card>

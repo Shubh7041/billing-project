@@ -1,4 +1,6 @@
+import { Plus, Trash2 } from "lucide-react";
 import { Button } from "../../components/ui";
+import { Icon } from "../../components/ui";
 import type { ProductUnit } from "../catalog/catalogTypes";
 
 interface ProductUnitEditorProps {
@@ -165,6 +167,7 @@ export function ProductUnitEditor({ units, onChange }: ProductUnitEditorProps) {
                   variant="ghost"
                   onClick={() => onChange(units.filter((item) => item.id !== unit.id))}
                 >
+                  <Icon icon={Trash2} size={15} />
                   Remove unit
                 </Button>
               )}
@@ -174,6 +177,7 @@ export function ProductUnitEditor({ units, onChange }: ProductUnitEditorProps) {
       </div>
 
       <Button type="button" variant="outline" onClick={addUnit}>
+        <Icon icon={Plus} size={16} />
         Add unit
       </Button>
     </fieldset>

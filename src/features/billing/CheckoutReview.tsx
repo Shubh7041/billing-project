@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
-import { Button, Card } from "../../components/ui";
+import { ArrowLeft, Banknote, ReceiptText, Smartphone } from "lucide-react";
+import { Button, Card, Icon } from "../../components/ui";
 import { calculateCartLineTotal, formatMoney, parseMoneyToMinorUnits } from "./billingMoney";
 import type { CartLine, DemoReceiptPreview, PaymentMethod } from "./billingTypes";
 
@@ -78,6 +79,7 @@ export function CheckoutReview({ lines, subtotalMinor, onBack, onPreview }: Chec
             checked={paymentMethod === "cash"}
             onChange={() => setPaymentMethod("cash")}
           />
+          <Icon icon={Banknote} size={17} />
           <span>Cash</span>
         </label>
         <label>
@@ -87,6 +89,7 @@ export function CheckoutReview({ lines, subtotalMinor, onBack, onPreview }: Chec
             checked={paymentMethod === "upi"}
             onChange={() => setPaymentMethod("upi")}
           />
+          <Icon icon={Smartphone} size={17} />
           <span>UPI</span>
         </label>
       </fieldset>
@@ -119,8 +122,11 @@ export function CheckoutReview({ lines, subtotalMinor, onBack, onPreview }: Chec
       {error && <p className="billing-error" role="alert">{error}</p>}
 
       <div className="billing-checkout-actions">
-        <Button type="button" variant="outline" onClick={onBack}>Back to cart</Button>
+        <Button type="button" variant="outline" onClick={onBack}>
+          <Icon icon={ArrowLeft} size={16} /> Back to cart
+        </Button>
         <Button type="button" onClick={handlePreview}>
+          <Icon icon={ReceiptText} size={16} />
           Preview demo receipt
         </Button>
       </div>

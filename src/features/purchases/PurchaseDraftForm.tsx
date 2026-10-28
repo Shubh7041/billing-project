@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react";
-import { Button, Card } from "../../components/ui";
+import { CalendarDays, CheckCircle2, Plus, X } from "lucide-react";
+import { Button, Card, Icon } from "../../components/ui";
 import type { Product } from "../catalog/catalogTypes";
 import type { Supplier } from "../suppliers/supplierTypes";
 import {
@@ -157,7 +158,7 @@ export function PurchaseDraftForm({
             </select>
           </div>
           <div className="purchase-form-field">
-            <label htmlFor="purchase-date">Purchase date *</label>
+            <label htmlFor="purchase-date"><Icon icon={CalendarDays} size={15} /> Purchase date *</label>
             <input id="purchase-date" type="date" value={purchaseDate} onChange={(event) => setPurchaseDate(event.target.value)} required />
           </div>
           <div className="purchase-form-field">
@@ -177,6 +178,7 @@ export function PurchaseDraftForm({
               <p>Full receipt only. Quantities use the selected unit; received stock uses its saved base-unit conversion.</p>
             </div>
             <Button type="button" variant="outline" onClick={addLine} disabled={activeProducts.length === 0}>
+              <Icon icon={Plus} size={16} />
               Add line
             </Button>
           </div>
@@ -206,8 +208,13 @@ export function PurchaseDraftForm({
         {error && <p className="purchase-form-error" role="alert">{error}</p>}
 
         <div className="purchase-form-actions">
-          <Button type="submit" disabled={isSaving}>{isSaving ? "Saving…" : "Save demo draft"}</Button>
-          <Button type="button" variant="outline" onClick={onCancel}>Cancel</Button>
+          <Button type="submit" disabled={isSaving}>
+            <Icon icon={CheckCircle2} size={16} />
+            {isSaving ? "Saving…" : "Save demo draft"}
+          </Button>
+          <Button type="button" variant="outline" onClick={onCancel}>
+            <Icon icon={X} size={15} /> Cancel
+          </Button>
         </div>
       </form>
     </Card>

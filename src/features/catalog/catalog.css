@@ -6,6 +6,9 @@
 }
 
 .catalog-demo-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
   margin: 0;
   padding: 10px 13px;
   border: 1px solid var(--color-brand-100);
@@ -91,6 +94,9 @@
 .catalog-form-field label,
 .catalog-search-field > span,
 .catalog-filter-field > span {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
   color: var(--color-text-primary);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
@@ -456,4 +462,10 @@
   .product-detail-flags {
     grid-column: auto;
   }
+}
+
+.catalog-product-link strong {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
 }

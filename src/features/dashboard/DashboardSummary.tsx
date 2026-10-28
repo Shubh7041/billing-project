@@ -1,4 +1,6 @@
 import { Card } from "../../components/ui";
+import { Icon } from "../../components/ui";
+import { AlertTriangle, Banknote, Package, ReceiptText } from "lucide-react";
 import {
   dashboardSummaryMock,
   formatCount,
@@ -11,7 +13,7 @@ const summaryItems = [
     label: "Today's sales",
     value: formatInr(dashboardSummaryMock.todaySales),
     detail: "Across all billing counters",
-    symbol: "₹",
+    icon: Banknote,
     accent: "sales",
   },
   {
@@ -19,7 +21,7 @@ const summaryItems = [
     label: "Today's bills",
     value: formatCount(dashboardSummaryMock.todayBills),
     detail: "Bills created today",
-    symbol: "B",
+    icon: ReceiptText,
     accent: "bills",
   },
   {
@@ -27,7 +29,7 @@ const summaryItems = [
     label: "Low stock items",
     value: formatCount(dashboardSummaryMock.lowStockItems),
     detail: "Products need attention",
-    symbol: "!",
+    icon: AlertTriangle,
     accent: "stock",
   },
   {
@@ -35,7 +37,7 @@ const summaryItems = [
     label: "Total products",
     value: formatCount(dashboardSummaryMock.totalProducts),
     detail: "In the product catalogue",
-    symbol: "P",
+    icon: Package,
     accent: "products",
   },
 ];
@@ -52,7 +54,7 @@ export function DashboardSummary() {
             className={`dashboard-summary-icon dashboard-summary-icon-${item.accent}`}
             aria-hidden="true"
           >
-            {item.symbol}
+            <Icon icon={item.icon} size={20} />
           </span>
           <div className="dashboard-summary-copy">
             <p className="dashboard-summary-label">{item.label}</p>

@@ -1,4 +1,6 @@
 import { useTheme } from "../../design-system/ThemeProvider";
+import { Menu, Moon, Sun, X } from "lucide-react";
+import { Icon } from "../ui";
 
 interface TopbarProps {
   onMenuClick: () => void;
@@ -19,7 +21,7 @@ export function Topbar({ onMenuClick, isMobileMenuOpen }: TopbarProps) {
           aria-controls="app-sidebar"
           aria-expanded={isMobileMenuOpen}
         >
-          <span aria-hidden="true">☰</span>
+          <Icon icon={isMobileMenuOpen ? X : Menu} size={20} />
         </button>
 
         <div className="topbar-heading">
@@ -38,9 +40,9 @@ export function Topbar({ onMenuClick, isMobileMenuOpen }: TopbarProps) {
           aria-label={`Switch to ${
             resolvedTheme === "dark" ? "light" : "dark"
           } theme`}
-          title="Toggle theme"
+          title={`Switch to ${resolvedTheme === "dark" ? "light" : "dark"} theme`}
         >
-          {resolvedTheme === "dark" ? "☀" : "☾"}
+          <Icon icon={resolvedTheme === "dark" ? Sun : Moon} size={19} />
         </button>
       </div>
     </header>
