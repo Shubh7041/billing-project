@@ -20,13 +20,13 @@ const navigationGroups = [
       { label: "Suppliers", path: "/suppliers", icon: "SU" },
     ],
   },
-  {
-    title: "MANAGEMENT",
-    items: [
-      { label: "Customers", path: "/customers", icon: "CU" },
-      { label: "Reports", path: "/reports", icon: "RE" },
-    ],
-  },
+  // {
+  //   title: "MANAGEMENT",
+  //   items: [
+  //     { label: "Customers", path: "/customers", icon: "CU" },
+  //     { label: "Reports", path: "/reports", icon: "RE" },
+  //   ],
+  // },
 ];
 
 interface SidebarProps {
