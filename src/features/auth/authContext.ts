@@ -7,7 +7,20 @@ export interface AuthContextValue {
   error: string | null;
   configurationError: string | null;
   signInWithPassword: (email: string, password: string) => Promise<void>;
+  signUpWithPassword: (input: SignUpInput) => Promise<SignUpResult>;
   signOut: () => Promise<void>;
+}
+
+export interface SignUpInput {
+  email: string;
+  password: string;
+  displayName: string;
+  requestedStoreName: string;
+}
+
+export interface SignUpResult {
+  userId: string;
+  sessionAvailable: boolean;
 }
 
 export const AuthContext = createContext<AuthContextValue | null>(null);

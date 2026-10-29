@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useMemo } from "react";
 import type { ReactNode } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "../auth/authContext";
@@ -105,12 +105,14 @@ async function loadStoreContext(userId: string): Promise<StoreContextData> {
   });
 
   if (activeStoreMemberships.length === 0) return { status: "store-unavailable" };
+  if (activeStoreMemberships.length > 1) {
+    throw new Error("This application is configured for one store, but multiple active store memberships were found. Ask an administrator to review the records.");
+  }
   return { status: "ready", profile, memberships: activeStoreMemberships };
 }
 
 export function StoreContextProvider({ children }: StoreContextProviderProps) {
   const { session, isLoading: isAuthLoading } = useAuth();
-  const [selection, setSelection] = useState<{ userId: string; storeId: string } | null>(null);
   const userId = session?.user.id ?? null;
   const query = useQuery({
     queryKey: ["app-store-context", userId],
@@ -120,12 +122,6 @@ export function StoreContextProvider({ children }: StoreContextProviderProps) {
     staleTime: 0,
     refetchOnMount: "always",
   });
-
-  const selectStore = useCallback((storeId: string) => {
-    if (!userId || query.data?.status !== "ready") return;
-    if (!query.data.memberships?.some((membership) => membership.store.id === storeId)) return;
-    setSelection({ userId, storeId });
-  }, [query.data, userId]);
 
   const value = useMemo(() => {
     if (isAuthLoading) return { status: "loading" } as const;
@@ -145,26 +141,8 @@ export function StoreContextProvider({ children }: StoreContextProviderProps) {
 
     const profile = data.profile as AppProfile;
     const memberships = data.memberships as StoreMembership[];
-    if (memberships.length === 1) {
-      return { status: "ready", profile, membership: memberships[0] } as const;
-    }
-
-    const selectedStoreId = selection?.userId === session.user.id ? selection.storeId : null;
-    const selectedMembership = memberships.find(
-      (membership) => membership.store.id === selectedStoreId,
-    );
-    if (selectedMembership) {
-      return { status: "ready", profile, membership: selectedMembership } as const;
-    }
-
-    return {
-      status: "choose-store",
-      profile,
-      memberships,
-      selectedStoreId,
-      selectStore,
-    } as const;
-  }, [isAuthLoading, query, selection, selectStore, session]);
+    return { status: "ready", profile, membership: memberships[0] } as const;
+  }, [isAuthLoading, query, session]);
 
   return <StoreContext.Provider value={value}>{children}</StoreContext.Provider>;
 }

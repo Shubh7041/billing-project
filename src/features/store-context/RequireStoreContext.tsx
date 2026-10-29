@@ -1,4 +1,4 @@
-import { Building2, CircleAlert } from "lucide-react";
+import { CircleAlert } from "lucide-react";
 import { Outlet } from "react-router-dom";
 import { Button, Card, Icon, LoadingState } from "../../components/ui";
 import { useStoreContext } from "./storeContext";
@@ -12,32 +12,6 @@ export function RequireStoreContext() {
   }
   if (storeContext.status === "ready") return <Outlet />;
 
-  if (storeContext.status === "choose-store") {
-    return (
-      <section className="store-access-page">
-        <Card title="Choose a store" description={`Signed in as ${storeContext.profile.displayName}`}>
-          <p className="store-access-copy">
-            Your account has access to more than one active store. Choose the store for this session.
-          </p>
-          <div className="store-choice-list" role="group" aria-label="Available stores">
-            {storeContext.memberships.map((membership) => (
-              <Button
-                key={membership.store.id}
-                type="button"
-                variant={storeContext.selectedStoreId === membership.store.id ? "primary" : "outline"}
-                onClick={() => storeContext.selectStore(membership.store.id)}
-              >
-                <Icon icon={Building2} size={16} />
-                <span>{membership.store.name}</span>
-                <span className="store-choice-role">{membership.role.replaceAll("_", " ")}</span>
-              </Button>
-            ))}
-          </div>
-        </Card>
-      </section>
-    );
-  }
-
   const issueContent = {
     "profile-missing": {
       title: "Application profile not found",
@@ -48,8 +22,8 @@ export function RequireStoreContext() {
       description: "Ask a store administrator to review this account. The browser cannot activate profiles.",
     },
     "membership-missing": {
-      title: "No store membership found",
-      description: "A trusted administrator must create an active store membership for this account. Store access cannot be granted from the browser.",
+      title: "No active store membership found",
+      description: "No active membership is available to this account. A trusted administrator must review or create its membership; the browser cannot grant or reactivate access.",
     },
     "membership-inactive": {
       title: "No active store membership",
@@ -77,6 +51,11 @@ export function RequireStoreContext() {
         {storeContext.status === "error" && (
           <Button type="button" variant="outline" onClick={storeContext.retry}>
             Retry access check
+          </Button>
+        )}
+        {storeContext.status !== "error" && (
+          <Button type="button" variant="outline" onClick={() => window.location.reload()}>
+            Retry after administrator provisioning
           </Button>
         )}
         <p className="store-access-footer">

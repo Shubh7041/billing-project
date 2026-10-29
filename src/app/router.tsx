@@ -7,6 +7,7 @@ import { CategoriesPage } from "@/features/categories/CategoriesPage";
 import { DashboardPage } from "@/features/dashboard/DashboardPage";
 import { NotFoundPage } from "@/features/not-found/NotFoundPage";
 import { LoginPage } from "@/features/auth/LoginPage";
+import { OwnerSetupPage } from "@/features/auth/OwnerSetupPage";
 import { RequireAuthentication } from "@/features/auth/RequireAuthentication";
 import { RequireStoreContext } from "@/features/store-context/RequireStoreContext";
 
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
   {
     path: ROUTES.login,
     element: <LoginPage />,
+  },
+  {
+    path: ROUTES.ownerSetup,
+    element: <OwnerSetupPage />,
   },
   {
     element: <AppShell />,

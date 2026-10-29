@@ -2,7 +2,9 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import type { ReactNode } from "react";
 import type { Session } from "@supabase/supabase-js";
 import { AuthContext } from "./authContext";
+import type { SignUpInput } from "./authContext";
 import { supabase, supabaseConfiguration } from "../../lib/supabase/client";
+import { ROUTES } from "../../app/routePaths";
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -65,6 +67,44 @@ export function AuthProvider({ children }: AuthProviderProps) {
     setIsLoading(false);
   }, []);
 
+  const signUpWithPassword = useCallback(async ({
+    email,
+    password,
+    displayName,
+    requestedStoreName,
+  }: SignUpInput) => {
+    if (!supabase) {
+      throw new Error(configurationError ?? "Supabase is not configured.");
+    }
+
+    const { data, error: signUpError } = await supabase.auth.signUp({
+      email: email.trim(),
+      password,
+      options: {
+        emailRedirectTo: new URL(ROUTES.ownerSetup, window.location.origin).toString(),
+        data: {
+          display_name: displayName.trim(),
+          requested_store_name: requestedStoreName.trim(),
+        },
+      },
+    });
+    if (signUpError) throw signUpError;
+    if (!data.user) {
+      throw new Error("Supabase did not return the new Auth user.");
+    }
+
+    if (data.session) {
+      setSession(data.session);
+      setError(null);
+      setIsLoading(false);
+    }
+
+    return {
+      userId: data.user.id,
+      sessionAvailable: data.session !== null,
+    };
+  }, []);
+
   const signOut = useCallback(async () => {
     if (!supabase) {
       throw new Error(configurationError ?? "Supabase is not configured.");
@@ -76,8 +116,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
   }, []);
 
   const value = useMemo(
-    () => ({ session, isLoading, error, configurationError, signInWithPassword, signOut }),
-    [session, isLoading, error, signInWithPassword, signOut],
+    () => ({ session, isLoading, error, configurationError, signInWithPassword, signUpWithPassword, signOut }),
+    [session, isLoading, error, signInWithPassword, signUpWithPassword, signOut],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

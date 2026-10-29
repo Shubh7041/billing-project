@@ -30,13 +30,6 @@ export type StoreContextValue =
   | { status: "membership-missing" }
   | { status: "membership-inactive" }
   | { status: "store-unavailable" }
-  | {
-      status: "choose-store";
-      profile: AppProfile;
-      memberships: StoreMembership[];
-      selectedStoreId: string | null;
-      selectStore: (storeId: string) => void;
-    }
   | { status: "ready"; profile: AppProfile; membership: StoreMembership };
 
 export const StoreContext = createContext<StoreContextValue | null>(null);

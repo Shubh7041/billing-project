@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { Button, Card, LoadingState } from "../../components/ui";
 import { PageContainer } from "../../components/layout/PageContainer";
 import { ROUTES } from "../../app/routePaths";
@@ -79,7 +79,7 @@ export function LoginPage() {
               Sign in
             </Button>
             <p className="auth-helper-text">
-              Accounts are provisioned by a store administrator. Self-service sign-up is not available.
+              First time here? <Link to={ROUTES.ownerSetup}>Create the owner account</Link>
             </p>
           </form>
         </Card>

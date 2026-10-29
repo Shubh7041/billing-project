@@ -66,3 +66,36 @@
   place-items: center;
   padding: var(--space-6);
 }
+
+.auth-helper-text a {
+  color: var(--color-brand-700);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.owner-setup-status {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  border: 1px solid var(--color-info);
+  border-radius: var(--radius-md);
+  background: var(--color-info-surface);
+}
+
+.owner-setup-status h2,
+.owner-setup-status p {
+  margin: 0;
+}
+
+.owner-setup-status h2 {
+  color: var(--color-info);
+  font-size: var(--font-size-md);
+}
+
+.owner-setup-status p {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  overflow-wrap: anywhere;
+}
